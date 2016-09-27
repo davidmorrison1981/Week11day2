@@ -15,7 +15,7 @@ var Map = function(container, coords, zoom){
         infowindow.open(map, marker);
       });
   
-  var contentString = '<div id="content">'+
+    var contentString = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
         '<h1 id="firstHeading" class="firstHeading">Commercial Street</h1>'+
@@ -33,7 +33,7 @@ var Map = function(container, coords, zoom){
         '</div>'+
         '</div>';
 
-        var infowindow = new google.maps.InfoWindow({
+      var infowindow = new google.maps.InfoWindow({
            content: contentString
          });
   }
@@ -49,5 +49,11 @@ var Map = function(container, coords, zoom){
     }.bind(this))
   }
 
-
+  
+  this.handleOnClick = function(){ 
+    google.maps.onclick.addListener(event.googleMap, 'click', function(event){
+      button.onclick = this.googleMap.setCenter(new google.maps.LatLng(55.9463732, -3.2023009))
+    }.bind(this))
 }
+}
+ 
